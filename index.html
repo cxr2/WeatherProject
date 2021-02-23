@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather ☀</title>
+    <script
+      src="https://kit.fontawesome.com/9611e40045.js"
+      crossorigin="anonymous"
+    ></script>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid" id="background">
+      <div class="input-group justify-content-center">
+  <input type="text" class="form-control" id="cityInput" placeholder="Enter a town or city">
+  <button class="btn btn-outline-secondary" id="search" type="button"><i class="fas fa-search"></i></button>
+  <button class="btn btn-outline-secondary" id="currentlocation" type="button"><i class="fas fa-map-marker"></i></button>
+</div>
+      <h3 id="datetime">10:49, Fri Feb 19</h3>
+      <h2><span id="city">London</span>, <span id="country"></span></h2>
+      <h1>
+        <span id="temperature"> 8 </span>
+        <span class="units"
+          ><a href="#" id="celsius">°C</a
+          ><a href="#" id="fahrenheit">°F</a></span
+        >
+      </h1>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card weatherdetails">
+            <div class="card-body">
+              <p class="card-text emoji">
+    <i class="fas fa-wind fa-3x"></i>
+              </p>
+              <p id="description">Cloudy</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card weatherdetails">
+            <div class="card-body">
+              <p class="card-text">
+               <ul>
+         <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="windspeed"></span></li>
+            </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  <div class="container">
+  <div class="row row-cols-auto justify-content-center">
+    <div class="col">
+      <div class="card forecast">
+  <div class="card-body">
+    <h5 class="card-title">mon</h5>
+    <p class="card-text forecast"><i class="fas fa-cloud-rain"></i><br/><span class="weektemp"><strong>14°</strong> 8°</span></p>
+  </div>
+</div></div>
+    <div class="col">   <div class="card forecast">
+  <div class="card-body">
+  <h5 class="card-title">tue</h5>
+    <p class="card-text forecast"><i class="far fa-sun"></i><br/><span class="weektemp"><strong>15°</strong> 10°</span></p>
+  </div>
+</div></div>
+    <div class="col">   <div class="card forecast">
+  <div class="card-body">
+<h5 class="card-title">wed</h5>
+    <p class="card-text forecast"><i class="fas fa-cloud-showers-heavy"></i><br/><span class="weektemp"><strong>10°</strong> 5°</span></p>
+  </div>
+</div></div>
+    <div class="col">   <div class="card forecast">
+  <div class="card-body">
+   <h5 class="card-title">thu</h5>
+    <p class="card-text forecast"><i class="fas fa-cloud-sun-rain"></i><br/><span class="weektemp"><strong>11°</strong> 7°</span></p>
+  </div>
+</div></div>
+    <div class="col">   <div class="card forecast">
+  <div class="card-body">
+   <h5 class="card-title">fri</h5>
+    <p class="card-text forecast"><i class="fas fa-snowflake"></i><br/><span class="weektemp"><strong>4°</strong> 1°</span></p>
+  </div>
+</div></div>
+  </div>
+</div>
+    </div>
+    <script src="src/index.js"></script>
+    <footer id="creator"><a href="#" target="_blank">Open-source code</a> by <a href="#" target="_blank">Cxr2</a></footer>
+  </body>
+</html>
