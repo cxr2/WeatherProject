@@ -1,6 +1,5 @@
-let now = new Date();
-
-function formatDate(now) {
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[now.getDay()];
   let date = now.getDate();
@@ -30,10 +29,6 @@ function formatDate(now) {
   return `${hours}:${minutes}, ${day} ${month} ${date}`;
 }
 
-let h3 = document.querySelector("#datetime");
-
-h3.innerHTML = formatDate(now);
-
 function showCelsius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
@@ -53,16 +48,23 @@ let fahrenheitButton = document.querySelector("#fahrenheit");
 fahrenheitButton.addEventListener("click", convertFahrenheit);
 
 function displayWeather(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#country").innerHTML = response.data.sys.country;
+  let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  let countryElement = document.querySelector("#country");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#windspeed");
+  let dateElement = document.querySelector("#datetime");
+
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#windspeed").innerHTML =
-    Math.round(response.data.wind.speed) + " km/h";
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+  cityElement.innerHTML = response.data.name;
+  countryElement.innerHTML = response.data.sys.country;
+  descriptionElement.innerHTML = response.data.weather[0].main;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function searchCity(city) {
