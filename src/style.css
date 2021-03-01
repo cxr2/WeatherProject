@@ -28,6 +28,7 @@ h3 {
   font-size: 22px;
   text-align: center;
   margin-top: 40px;
+  margin-bottom: 0px;
 }
 
 h2 {
@@ -41,37 +42,49 @@ h1 {
   font-size: 60px;
   line-height: 12px;
   margin-top: 40px;
+  margin-bottom: 0px;
 }
 
 a#celsius,
 a#fahrenheit {
-  font-size: 25px;
-  text-decoration: none;
-  color: white;
-}
-
-a#celsius:hover,
-a#fahrenheit:hover {
-  color: white;
+  font-size: 16px;
   font-weight: 600;
+  color: white;
+  text-decoration: none;
 }
 
-.units {
+#fahrenheit {
   position: relative;
-  top: -22px;
-  left: -10px;
+  top: -40px;
+  left: 45px;
+}
+
+#celsius {
+  position: relative;
+  top: -38px;
+  left: 45px;
+}
+
+p.units {
+  margin-bottom: 0px;
 }
 
 .card.weatherdetails {
   background-color: rgba(250, 250, 250, 0);
   border: none;
-  margin-top: 15px;
   font-size: 15px;
+  top: -20px;
 }
 
+.card.icon {
+  background-color: rgba(250, 250, 250, 0);
+  border: none;
+  font-size: 15px;
+  top: -40px;
+}
 .col-sm-6 {
   text-align: center;
-  height: 160px;
+  height: 120px;
 }
 
 ul {
@@ -136,8 +149,20 @@ h5 {
   line-height: 30px;
 }
 
+.active {
+  cursor: default;
+  font-size: 23px !important;
+  text-decoration: none !important;
+  position: relative;
+}
+
 footer {
   font-size: 13px;
   text-align: center;
   color: black;
+}
+
+a#celsius:hover,
+a#fahrenheit:hover {
+  text-decoration: none;
 }
