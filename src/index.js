@@ -26,7 +26,7 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `${hours}:${minutes}, ${day} ${month} ${date}`;
+  return `${hours}:${minutes}, ${day}, ${month} ${date}`;
 }
 
 function displayWeather(response) {

@@ -10,16 +10,17 @@ body {
   border-radius: 10px;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.02);
 }
-
-.form-control,
-.btn {
-  margin-top: 40px;
-}
-
 .form-control {
-  max-width: 230px;
+  margin-top: 40px;
+  display: inline-block;
 }
 
+.btn {
+  display: inline-block;
+}
+.form-control {
+  max-width: 200px;
+}
 .card-text.emoji {
   margin-bottom: 0px;
 }
@@ -50,7 +51,7 @@ a#fahrenheit {
   font-size: 16px;
   font-weight: 600;
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 #fahrenheit {
@@ -165,4 +166,11 @@ footer {
 a#celsius:hover,
 a#fahrenheit:hover {
   text-decoration: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
