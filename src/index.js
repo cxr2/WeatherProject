@@ -79,11 +79,34 @@ let fahrenheitButton = document.querySelector("#fahrenheit");
 fahrenheitButton.addEventListener("click", convertFahrenheit);
 let celsiusTemperature = null;
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.list[0];
+
+  forecastElement.innerHTML = `<div class="row row-cols-auto justify-content-center" id="forecast">
+    <div class="col">
+      <div class="card forecast">
+  <div class="card-body">
+    <h5 class="card-title">12:00</h5>
+    <p class="card-text forecast"><img class="icons" src="http://openweathermap.org/img/wn/${
+      forecast.weather[0].icon
+    }@2x.png"><span class="weektemp"><strong>${Math.round(
+    forecast.main.temp_max
+  )}°</strong> ${Math.round(forecast.main.temp_min)}°</span></p>
+  </div>
+</div></div>
+  </div>
+</div>`;
+}
+
 function searchCity(city) {
   let apiKey = "15351fed24e9858d556a9255a2af3e61";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
   let searchInput = document.querySelector("#cityInput");
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function handleSubmit(event) {

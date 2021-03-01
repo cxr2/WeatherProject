@@ -112,7 +112,6 @@ p#description {
   width: 70px;
   margin-bottom: 40px;
   background-color: rgba(0, 0, 0, 0.5);
-  border: none;
 }
 
 .card-text.forecast {
@@ -129,25 +128,19 @@ p#description {
   padding: 7px;
 }
 
-.fas.fa-cloud-rain,
-.far.fa-sun,
-.fas.fa-cloud-showers-heavy,
-.fas.fa-cloud-sun-rain,
-.fas.fa-snowflake {
-  font-size: 20px;
-  padding: 3px 0px;
-}
-
 h5 {
   font-size: 14px;
   font-weight: 500;
-  margin-top: 3px;
   text-align: center;
   text-transform: uppercase;
 }
 
-.weektemp {
-  line-height: 30px;
+h5.card-title {
+  margin-bottom: 0px;
+}
+
+img.icons {
+  height: 45px;
 }
 
 .active {
