@@ -18,6 +18,11 @@ function formatDate(timestamp) {
     "Dec",
   ];
   let month = months[now.getMonth()];
+  return `${formatHours(timestamp)}, ${day}, ${month} ${date}`;
+}
+
+function formatHours(timestamp) {
+  let now = new Date(timestamp);
   let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -25,8 +30,8 @@ function formatDate(timestamp) {
   let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
+    return `${hours}:${minutes}`;
   }
-  return `${hours}:${minutes}, ${day}, ${month} ${date}`;
 }
 
 function displayWeather(response) {
@@ -81,22 +86,24 @@ let celsiusTemperature = null;
 
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  let forecast = response.data.list[0];
+  forecastElement.innerHTML = null;
+  let forecast = null;
 
-  forecastElement.innerHTML = `<div class="row row-cols-auto justify-content-center" id="forecast">
+  for (let index = 0; index <= 4; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
     <div class="col">
       <div class="card forecast">
   <div class="card-body">
-    <h5 class="card-title">12:00</h5>
+    <h5 class="card-title">${formatHours(forecast.dt * 1000)}</h5>
     <p class="card-text forecast"><img class="icons" src="http://openweathermap.org/img/wn/${
       forecast.weather[0].icon
     }@2x.png"><span class="weektemp"><strong>${Math.round(
-    forecast.main.temp_max
-  )}°</strong> ${Math.round(forecast.main.temp_min)}°</span></p>
+      forecast.main.temp_max
+    )}°</strong> ${Math.round(forecast.main.temp_min)}°</span></p>
   </div>
-</div></div>
-  </div>
-</div>`;
+</div></div>`;
+  }
 }
 
 function searchCity(city) {
